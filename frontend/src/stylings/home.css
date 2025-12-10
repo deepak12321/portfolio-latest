@@ -1,0 +1,63 @@
+.blob {
+  position: absolute;
+
+  background: radial-gradient(circle at 30% 20%, #ff006a, #b838f8, #0224ce);
+  border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+  /* initial blob shape */
+  filter: blur(60px);
+  opacity: 0.7;
+  z-index: -1;
+}
+
+.skills-card:hover {
+  cursor: pointer;
+}
+
+.skills-card {
+  /* From https://css.glass */
+  background: rgba(40, 40, 40, 0.2);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.holographic-card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.5s ease;
+}
+
+.holographic-card h2 {
+  font-size: 2rem;
+  position: relative;
+  z-index: 2;
+}
+
+.holographic-card::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    0deg,
+    transparent,
+    transparent 40%,
+    rgba(255, 255, 255, 0.3)
+  );
+  transform: rotate(-45deg);
+  transition: all 0.5s ease;
+  opacity: 0;
+}
+/*  */
+
+.holographic-card:hover::before {
+  opacity: 1;
+  transform: rotate(-45deg) translateY(100%);
+}
